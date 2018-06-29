@@ -12,14 +12,13 @@ async def on_ready():
     
     
 @bot.command()
-async def dmall(ctx, *, msg: str):
+async def dmall(ctx, *, msg):
     if not "CEO" in [x.name for x in ctx.author.roles]:
         return await ctx.send("NOPE! You must have the CEO role to use this command.")
-    msg = await ctx.send("Please wait, DMing everyone...")
+    m = await ctx.send("Please wait, DMing everyone...")
     for x in ctx.guild.members:
-        try: await x.send(msg)
+        try: await x.send(str(msg))
         except: continue
-    await msg.edit(content="Successfully DMed everyone.")
-    
+    await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(message.created_at).split('.')[0]}\nMessage : {str(msg)}")
     
 bot.run(os.environ.get("TOKEN"))
