@@ -17,7 +17,8 @@ async def dmall(self, ctx, msg: str):
         return await ctx.send("NOPE! You must have the CEO role to use this command.")
     msg = await ctx.send("Please wait, DMing everyone...")
     for x in ctx.guild.members:
-        await x.send(msg)
+        try: await x.send(msg)
+        except: continue
     await msg.edit(content="Successfully DMed everyone.")
     
     
