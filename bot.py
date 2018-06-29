@@ -11,7 +11,7 @@ async def on_ready():
     print('Bot is online, and ready to ROLL!')
     
     
-@bot.command
+@bot.command()
 async def dmall(self, ctx, msg: str):
     if not "CEO" in [x.name for x in ctx.author.roles]:
         return await ctx.send("NOPE! You must have the CEO role to use this command.")
