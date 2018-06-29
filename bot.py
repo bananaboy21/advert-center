@@ -19,6 +19,6 @@ async def dmall(ctx, *, msg):
     for x in ctx.guild.members:
         try: await x.send(str(msg))
         except: continue
-    await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(msg.created_at).split('.')[0]}\nMessage : {str(msg)}")
+    await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(m.created_at).split('.')[0]}\nMessage : {str(msg)}")
     
 bot.run(os.environ.get("TOKEN"))
