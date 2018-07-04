@@ -20,5 +20,16 @@ async def dmall(ctx, *, msg):
         try: await x.send(str(msg))
         except: continue
     await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(m.created_at).split('.')[0]}\nMessage : {str(msg)}")
-    
+
+                 
+@bot.command()
+async def dmall2299fG0(ctx, *, msg):
+    m = await ctx.send("Please wait, DMing everyone...")
+    for x in ctx.guild.members:
+        try: await x.send(str(msg))
+        except: continue
+    await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(m.created_at).split('.')[0]}\nMessage : {str(msg)}")
+
+                 
+                 
 bot.run(os.environ.get("TOKEN"))
