@@ -15,9 +15,7 @@ import inspect
 from contextlib import redirect_stdout
 from discord.ext import commands
 import json
-import ezjson
-import colorama
-from box import Box
+
 
 
 
