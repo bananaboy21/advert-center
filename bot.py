@@ -61,7 +61,6 @@ async def _eval(ctx, *, body):
         'message': ctx.message,
         '_': bot._last_result,
         'src': inspect.getsource,
-        'session': bot.session
     }
 
     env.update(globals())
