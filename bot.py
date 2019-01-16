@@ -19,8 +19,8 @@ import json
 
 
 
-bot = commands.Bot(command_prefix="+",owner_id=277981712989028353)
-bot.remove_command("help")
+bot = commands.Bot(command_prefix="!",owner_id=304737539846045696)
+
 bot._last_result = None
 
 
@@ -38,17 +38,16 @@ async def on_ready():
     print('Bot is online, and ready to ROLL!')
     
     
-@bot.command(aliases=['dm'])
+@bot.command(aliases=['dm', 'message'])
+@commands.has_permissions(administrator=True)
 async def dmall(ctx, *, msg):
-    if not "CEO" in [x.name for x in ctx.author.roles]:
-        return await ctx.send("NOPE! You must have the CEO role to use this command.")
     m = await ctx.send("Please wait, DMing everyone...")
     for x in ctx.guild.members:
         try: await x.send(str(msg))
         except: continue
     await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(m.created_at).split('.')[0]}\nMessage : {str(msg)}")
 
-@bot.command(name='eval')
+@bot.command(name='eval', hidden=True)
 async def _eval(ctx, *, body):
     """Evaluates python code"""
     if ctx.author.id not in (335399343194374144, 277981712989028353, 457754257630822400):
@@ -130,14 +129,6 @@ async def _eval(ctx, *, body):
     else:
         await ctx.message.add_reaction('\u2705')
                  
-@bot.command()
-async def dm2292827(ctx, *, msg):
-    m = await ctx.send("Please wait, DMing everyone...")
-    for x in ctx.guild.members:
-        try: await x.send(str(msg))
-        except: continue
-    await m.edit(content=f"**Message sent.**\n\nServer name : {ctx.guild.name}\nWriter : {ctx.author.name}\nTime : {str(m.created_at).split('.')[0]}\nMessage : {str(msg)}")
-
                  
                  
 bot.run(os.environ.get("TOKEN"))
