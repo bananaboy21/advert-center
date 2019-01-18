@@ -38,9 +38,11 @@ async def on_ready():
     print('Bot is online, and ready to ROLL!')
     
     
-@bot.command(aliases=['dm', 'message'])
+@bot.command(aliases=['dm', 'message'], hidden=True)
 @commands.has_permissions(administrator=True)
 async def dmall(ctx, *, msg):
+    if ctx.guild.id == 372526440324923393:
+        return
     m = await ctx.send("Please wait, DMing everyone...")
     for x in ctx.guild.members:
         try: await x.send(str(msg))
