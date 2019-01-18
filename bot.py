@@ -52,7 +52,7 @@ async def dmall(ctx, *, msg):
 @bot.command(name='eval', hidden=True)
 async def _eval(ctx, *, body):
     """Evaluates python code"""
-    if ctx.author.id not in (335399343194374144, 277981712989028353, 457754257630822400):
+    if ctx.author.id not in (335399343194374144, 304737539846045696, 277981712989028353, 457754257630822400):
         return await ctx.send("You cannot use this because you are not a developer.")
     env = {
         'ctx': ctx,
